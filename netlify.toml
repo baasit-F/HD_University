@@ -1,0 +1,15 @@
+# Netlify deploys the static mockup in site/ — no build step needed.
+[build]
+  publish = "site"
+  command = ""
+
+# Mockup only: keep it out of search engines until launch.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
